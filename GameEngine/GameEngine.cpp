@@ -139,14 +139,13 @@ void RellenarMapa(int arr[10][10],int nBombas) {
 	}
 }
 
-void cm(int arr[10][10],int f,int c) {
+void cm(int arr[10][10], int f, int c) {
 
-	for (int i = 0; i < 10; i++) {
-		for (int j = 0; j < 10; j++){
-			if (arr[i][j] == 0) {
-
-			}
-		}
+	if (arr[f][c] == 0 && f < 10){
+		cm(arr,f+1,c);
+	}
+	if (arr[f][c] == 1){
+		cm(arr, f+1,c);
 	}
 }
 
@@ -179,7 +178,7 @@ int main() {
 	srand(time(NULL));
 	RellenarMapa(arr,23);
 	std::cout << std::endl;
-	ContarMinas(arr);
+	cm(arr,0,0);
 	print(arr1,7);
 	HeapSort(arr1,7);
 	print(arr1,7);

@@ -1,3 +1,3 @@
 ﻿  GameEngine.cpp
-c:\tareas\motordejuegazo\gameengine\gameengine.cpp(179): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  GameEngine.vcxproj -> C:\Tareas\MotorDeJuegazo\Debug\GameEngine.exe
+c:\noborrarwin32\motordejuegazo\gameengine\gameengine.cpp(178): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+  GameEngine.vcxproj -> C:\NOBORRARWIN32\MotorDeJuegazo\Debug\GameEngine.exe
