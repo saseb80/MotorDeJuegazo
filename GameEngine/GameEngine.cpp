@@ -10,8 +10,10 @@ bool exitKeyPressed();
 void getInput();
 void update();
 void render();
+
 List <GameObject> mainList;
 
+//Declaracion de los gameobjects para los sort
 GameObject g1(1);
 GameObject g2(2);
 GameObject g3(3);
@@ -51,21 +53,68 @@ void SelectionSort(GameObject arr[],int t) {
 	}
 }
 
-void HeapSort(GameObject arr[]) {
+//int Partition(GameObject goArray[], int low, int high) {
+//	GameObject pivot;
+//	pivot = goArray[high];
+//	int i = (low - 1);
+//	for (int j = low; j <= high - 1; j++) {
+//		if (goArray[j].GetID() < pivot.GetID()) {
+//			i++;
+//			Swapping(goArray[i], goArray[j]);
+//		}
+//	}
+//	Swapping(goArray[i + 1], goArray[high]);
+//	return (i + 1);
+//}
+//
+//void QuickSort(GameObject goArray[], int low, int high) {
+//	if (low < high) {
+//		int pIndex = Partition(goArray, low, high);
+//		QuickSort(goArray, low, pIndex - 1);
+//		QuickSort(goArray, pIndex + 1, high);
+//	}
+//}
 
-}
+//void Heapify(GameObject arr[], int size, int i) {
+//	int largest = i;
+//	int l = 2 * i + 1;
+//	int r = 2 * i + 2;
+//	if (l < size && arr[l]._id > arr[largest]._id) {
+//		largest = l;
+//	}
+//	if (r < size && arr[r]._id > arr[largest]._id) {
+//		largest = r;
+//	}
+//	if (largest != i) {
+//		Swapping(arr[i], arr[largest]);
+//		Heapify(arr, size, largest);
+//	}
+//}
+//
+//void HeapSort(GameObject arr[], short size) {
+//	for (int i = size / 2 - 1; i >= 0; i--) {
+//		Heapify(arr, size, i);
+//	}
+//	for (int i = size - 1; i >= 0; i--) {
+//		Swapping(arr[0], arr[i]);
+//		Heapify(arr, i, 0);
+//	}
+//}
 
 void QuickSort(GameObject arr[]) {
 
 }
 
-void RellenarMapa(int arr[10][10]) {
+//rellena el mapa de buscaminas de forma aleatoria
+void RellenarMapa(int arr[10][10],int nBombas) {
 	int random;
 	int contador = 0;
 	for (int i = 0; i < 10; i++) {
 		for (int j = 0;j < 10; j++) {
-			random = rand() % 9;
-			if (contador < 20 && random == 1) {
+			//rand es un numero aleatorio entre 0 y 9
+			random = rand() % 7;
+			//El contador limita el numero de bombas
+			if (contador < nBombas && random == 1) {
 				contador = contador + 1;
 				arr[i][j] = 1;
 			}
@@ -78,17 +127,46 @@ void RellenarMapa(int arr[10][10]) {
 	}
 }
 
-void ContarMinas(int arr[10][10]) {
+void cm(int arr[10][10],int f,int c) {
 
+	for (int i = 0; i < 10; i++) {
+		for (int j = 0; j < 10; j++){
+			if (arr[i][j] == 0) {
+
+			}
+		}
+	}
 }
-void print(int arr[10][10]) {
 
+void ContarMinas(int arr[10][10]) {
+	int array[10][10];
+	int val;
+	for (int i = 0; i < 10; i++) {
+		for (int j = 0; j < 10; j++) {
+			//cuando esta enmedio
+			val = 0;
+			if (arr[i][j] == 0 && i > 0 && j > 0) {
+				val = array[i - 1][j] + array[i + 1][j + 1] + array[i][j + 1] + array[i - 1][j + 1] +
+					  array[i + 1][j] + array[i + 1][j - 1] + array[i][j - 1] + array[i - 1][j - 1];
+				arr[i][j] = val;
+			}
+			else if(arr[i][j] == 0 && i == 0&& j == 0){
+				val = array[i+1][j] + array[i+1][j+1] + array[i][j+1];
+				array[i][j];
+				arr[i][j] = val;
+			}
+			
+			std::cout << "|_" << arr[i][j] << "_";
+		}
+		std::cout << "|" << std::endl;
+	}
 }
 
 int main() {
 	int arr[10][10];
 	srand(time(NULL));
-	RellenarMapa(arr);
+	RellenarMapa(arr,23);
+	std::cout << std::endl;
 	ContarMinas(arr);	
 	
 	//SelectionSort(arr1, 8);
@@ -135,6 +213,8 @@ void update() {
 		it = it->next;
 	}
 }
+
+
 //class Base {
 //	public:
 //		virtual void print() {
