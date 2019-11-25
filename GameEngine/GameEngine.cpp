@@ -28,6 +28,14 @@ GameObject arr2[] = {g2,g8,g5,g3,g6,g4,g1,g7};
 GameObject arr3[] = {g2,g8,g5,g3,g6,g4,g1,g7};
 GameObject arr4[] = {g2,g8,g5,g3,g6,g4,g1,g7};
  
+//pa swapear elementos
+void Cambiar(GameObject &a, GameObject &b) {
+	GameObject temp;
+	temp = a;
+	a = b;
+	b = temp;
+
+}
 
 void MergeSort(GameObject arr[]) {
 }
@@ -53,56 +61,60 @@ void SelectionSort(GameObject arr[],int t) {
 	}
 }
 
-//int Partition(GameObject goArray[], int low, int high) {
-//	GameObject pivot;
-//	pivot = goArray[high];
-//	int i = (low - 1);
-//	for (int j = low; j <= high - 1; j++) {
-//		if (goArray[j].GetID() < pivot.GetID()) {
-//			i++;
-//			Swapping(goArray[i], goArray[j]);
-//		}
-//	}
-//	Swapping(goArray[i + 1], goArray[high]);
-//	return (i + 1);
-//}
-//
-//void QuickSort(GameObject goArray[], int low, int high) {
-//	if (low < high) {
-//		int pIndex = Partition(goArray, low, high);
-//		QuickSort(goArray, low, pIndex - 1);
-//		QuickSort(goArray, pIndex + 1, high);
-//	}
-//}
+int Partition(GameObject arr[], int low, int high) {
+	GameObject pivote;
+	pivote = arr[high];
+	int i = (low - 1);
+	for (int j = low; j <= high - 1; j++) {
+		if (arr[j]._id < pivote._id) {
+			i++;
+			Cambiar(arr[i], arr[j]);
+		}
+	}
+	Cambiar(arr[i + 1], arr[high]);
+	return (i + 1);
+}
 
-//void Heapify(GameObject arr[], int size, int i) {
-//	int largest = i;
-//	int l = 2 * i + 1;
-//	int r = 2 * i + 2;
-//	if (l < size && arr[l]._id > arr[largest]._id) {
-//		largest = l;
-//	}
-//	if (r < size && arr[r]._id > arr[largest]._id) {
-//		largest = r;
-//	}
-//	if (largest != i) {
-//		Swapping(arr[i], arr[largest]);
-//		Heapify(arr, size, largest);
-//	}
-//}
-//
-//void HeapSort(GameObject arr[], short size) {
-//	for (int i = size / 2 - 1; i >= 0; i--) {
-//		Heapify(arr, size, i);
-//	}
-//	for (int i = size - 1; i >= 0; i--) {
-//		Swapping(arr[0], arr[i]);
-//		Heapify(arr, i, 0);
-//	}
-//}
+void QuickSort(GameObject arr[], int low, int high) {
+	if (low < high) {
+		int index = Partition(arr, low, high);
+		QuickSort(arr, low, index - 1);
+		QuickSort(arr, index + 1, high);
+	}
+}
 
-void QuickSort(GameObject arr[]) {
+void Heapify(GameObject arr[], int size, int i) {
+	int largest = i;
+	int izq = 2 * i + 1;
+	int der = 2 * i + 2;
+	if (izq < size && arr[izq]._id > arr[largest]._id) {
+		largest = izq;
+	}
+	if (der < size && arr[der]._id > arr[largest]._id) {
+		largest = der;
+	}
+	if (largest != i) {
+		Cambiar(arr[i], arr[largest]);
+		Heapify(arr, size, largest);
+	}
+}
 
+void HeapSort(GameObject arr[], short size) {
+	for (int i = size / 2 - 1; i >= 0; i--) {
+		Heapify(arr, size, i);
+	}
+	for (int i = size - 1; i >= 0; i--) {
+		//Mueve la raiz al final
+		Cambiar(arr[0], arr[i]);
+		Heapify(arr, i, 0);
+	}
+}
+
+void print(GameObject arr[], int size) {
+	//esto ni se tiene que explicar ez :v
+	for (int i = 0; i < size; i++) {
+		std::cout<< arr[i]._id << " " << std::endl;
+	}
 }
 
 //rellena el mapa de buscaminas de forma aleatoria
@@ -167,7 +179,10 @@ int main() {
 	srand(time(NULL));
 	RellenarMapa(arr,23);
 	std::cout << std::endl;
-	ContarMinas(arr);	
+	ContarMinas(arr);
+	print(arr1,7);
+	HeapSort(arr1,7);
+	print(arr1,7);
 	
 	//SelectionSort(arr1, 8);
 	////inicializa todo lo necesario para el juego
