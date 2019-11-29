@@ -10,14 +10,14 @@ private:
 public:
 	vectorT<T>() {
 		_size = 0;
-		
+		arr = new T*[10];
 		for (int i = 0; i < _size; i++) {
 			arr[i] = nullptr;
 		}
 	}
 	vectorT<T>(int size) {
 		_size = size;
-		
+		arr = new T[size];
 		for (int i = 0; i < size; i++) {
 			arr[i] = nullptr;
 		}
@@ -34,7 +34,12 @@ public:
 
 template<class T>
 void vectorT<T>::push(T data, int index) {
-
+	if (_size>=index) {
+		arr[index] = data;
+	}
+	else if (_size<index) {
+		std::cout << "No se puede agregar ahi" << std::endl;
+	}
 }
 
 template<class T>

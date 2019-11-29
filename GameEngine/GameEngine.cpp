@@ -190,7 +190,7 @@ int main() {
 	GameObject g7("juan", 123123);
 	GameObject g8("luciano", 435645);
 	GameObject g9("aaron", 23423472);
-	TablaHash<int> teibol;
+	TablaHash<GameObject> teibol;
 	teibol.GenCodigoHash(g1);
 	teibol.GenCodigoHash(g2);
 	teibol.GenCodigoHash(g3);

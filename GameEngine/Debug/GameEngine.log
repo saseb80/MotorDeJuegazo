@@ -1,4 +1,5 @@
 ﻿  GameEngine.cpp
   TablaHash.cpp
+  vectorT.cpp
   Generating Code...
   GameEngine.vcxproj -> C:\Tareas\MotorDeJuegazo\Debug\GameEngine.exe
