@@ -1,14 +1,18 @@
 #pragma once
-#include<iostream>
+#include <iostream>
+#include <string>
 
 class GameObject {
 
 public:
-	int _id;
-	short id;
+	std::string _idStr;
+	long _idNum;
 	virtual void Update();
 	GameObject(){}
-	GameObject(int id) : _id(id) {}
+	GameObject(std::string idStr,long idNum){
+		_idNum = idNum;
+		_idStr = idStr;
+	}
 	~GameObject() {}
 };
 

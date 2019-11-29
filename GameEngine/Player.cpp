@@ -1,18 +1,16 @@
 #include "pch.h"
 #include "Player.h"
+#include <string>
 
 
 
 Player::Player(){
 }
 
-Player::Player(short i) : GameObject(i){
-
-}
 
 Player::~Player(){
 }
 
 void Player::Update(){
-	std::cout << id << ": Update Player" << std::endl;
+	std::cout << _idNum << ": Update Player" << std::endl;
 }

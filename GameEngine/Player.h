@@ -5,7 +5,6 @@ class Player :
 public:
 	void Update();
 	Player();
-	Player(short i);
 	~Player();
 };
 
