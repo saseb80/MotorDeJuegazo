@@ -181,6 +181,7 @@ List <GameObject> mainList;
 
 
 int main() {
+	//declaracion de los objetos
 	GameObject g1("wowperro", 89009);
 	GameObject g2("saseb", 2134);
 	GameObject g3("alberto", 1234);
@@ -190,7 +191,12 @@ int main() {
 	GameObject g7("juan", 123123);
 	GameObject g8("luciano", 435645);
 	GameObject g9("aaron", 23423472);
-	TablaHash<GameObject> teibol;
+	GameObject g10("Enrique", 123456);
+	GameObject g11("De", 2457246);
+	GameObject g12("Irving", 4561234);
+	GameObject g13("Joshua", 2789789);
+	GameObject g14("pablo", 912919291);
+	TablaHash<GameObject> teibol(50);
 	teibol.insertar(g1);
 	teibol.insertar(g2);
 	teibol.insertar(g3);
@@ -200,6 +206,12 @@ int main() {
 	teibol.insertar(g7);
 	teibol.insertar(g8);
 	teibol.insertar(g9);
+	teibol.insertar(g10);
+	teibol.insertar(g11);
+	teibol.insertar(g12);
+	teibol.insertar(g13);
+	teibol.insertar(g14);
+	//teibol.print();
 	
 }
 

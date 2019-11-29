@@ -6,14 +6,14 @@ class vectorT
 {
 private:
 	T** arr;
-	int _size;
 	int current;
 	int col;
 	int last;
+	int _size;
 public:
 	vectorT<T>() {
-		_size = 0;
-		arr = new T*[100];
+		_size = 100;
+		arr = new T*[_size];
 		for (int i = 0; i < _size; i++) {
 			arr[i] = nullptr;
 		}
@@ -25,8 +25,8 @@ public:
 			arr[i] = nullptr;
 		}
 	}
-	void push(GameObject g, int index);
-	T at(int index);
+	void push(GameObject data, int index);
+	GameObject at(int index);
 	void pop();
 	int sais();
 	int getCapacity();
@@ -34,16 +34,16 @@ public:
 	~vectorT(){}
 };
 
-
+//AGREGA OBJETOS
 template<class T>
 void vectorT<T>::push(GameObject data, int index) {
-	if (_size>=index) {
+	if (_size>index) {
 		if (arr[index] != nullptr) {
 			data.colisionIndex += 1;
 			arr[index][data.colisionIndex] = data;
 		}
 		else if (arr[index] == nullptr){
-			arr[index] = data;
+			arr[index] = &data;
 		}
 	}
 	else if (_size<index) {
@@ -51,20 +51,22 @@ void vectorT<T>::push(GameObject data, int index) {
 	}
 }
 
+//devuelve un opbejto
 template<class T>
-T vectorT<T>::at(int index) {
+GameObject vectorT<T>::at(int index){
 	return arr[index];
 }
 
 template<class T>
 void vectorT<T>::pop() {
-	arr[_size+1] = nullptr;
+	arr[_size] = nullptr;
 	_size = _size - 1;
 }
 
+//devuelve el size
 template<class T>
 int vectorT<T>::sais() {
-
+	return _size;
 }
 
 template<class T>
@@ -75,7 +77,7 @@ int vectorT<T>::getCapacity(){
 template<class T>
 void vectorT<T>::print() {
 	for (int i = 0; i < _size; i++) {
-		std::cout << arr[i] << " " <<std:: endl;
+		std::cout << arr[i] << " " << std::endl;
 	}
 }
 

@@ -13,7 +13,6 @@ public:
 	GameObject(std::string idStr,long idNum){
 		_idNum = idNum;
 		_idStr = idStr;
-
 	}
 	~GameObject() {}
 };
