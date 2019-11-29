@@ -10,14 +10,14 @@ private:
 public:
 	vectorT<T>() {
 		_size = 0;
-		arr = new T*[10];
+		arr = new T*[100];
 		for (int i = 0; i < _size; i++) {
 			arr[i] = nullptr;
 		}
 	}
 	vectorT<T>(int size) {
 		_size = size;
-		arr = new T[size];
+		arr = new T*[size];
 		for (int i = 0; i < size; i++) {
 			arr[i] = nullptr;
 		}

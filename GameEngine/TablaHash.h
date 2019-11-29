@@ -8,10 +8,14 @@ class TablaHash
 {
 public:
 	int size;
-	vectorT<T> teibol;
+	vectorT<T>* teibol;
 	int hash;
 	int index;
 	TablaHash() {
+		GameObject* teibol = new GameObject();
+	}
+	TablaHash(int size) {
+		GameObject* teibol = new GameObject(size);
 	}
 	int GenCodigoHash(GameObject g);
 	void insertar(GameObject g, int index);
