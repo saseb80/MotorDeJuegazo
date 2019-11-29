@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include "GameObject.h"
 template<class T>
 class vectorT
 {
@@ -7,6 +8,8 @@ private:
 	T** arr;
 	int _size;
 	int current;
+	int col;
+	int last;
 public:
 	vectorT<T>() {
 		_size = 0;
@@ -22,7 +25,7 @@ public:
 			arr[i] = nullptr;
 		}
 	}
-	void push(T data, int index);
+	void push(GameObject g, int index);
 	T at(int index);
 	void pop();
 	int sais();
@@ -33,9 +36,15 @@ public:
 
 
 template<class T>
-void vectorT<T>::push(T data, int index) {
+void vectorT<T>::push(GameObject data, int index) {
 	if (_size>=index) {
-		arr[index] = data;
+		if (arr[index] != nullptr) {
+			data.colisionIndex += 1;
+			arr[index][data.colisionIndex] = data;
+		}
+		else if (arr[index] == nullptr){
+			arr[index] = data;
+		}
 	}
 	else if (_size<index) {
 		std::cout << "No se puede agregar ahi" << std::endl;
@@ -44,12 +53,13 @@ void vectorT<T>::push(T data, int index) {
 
 template<class T>
 T vectorT<T>::at(int index) {
-
+	return arr[index];
 }
 
 template<class T>
 void vectorT<T>::pop() {
-
+	arr[_size+1] = nullptr;
+	_size = _size - 1;
 }
 
 template<class T>

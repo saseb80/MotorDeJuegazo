@@ -1,4 +1,25 @@
 ﻿  GameEngine.cpp
-  TablaHash.cpp
-  Generando código...
-  GameEngine.vcxproj -> C:\MotorDeJuegazo\Debug\GameEngine.exe
+C:\Tareas\MotorDeJuegazo\GameEngine\vectorT.h(46,1): error C2440: '=': no se puede realizar la conversión de 'GameObject' a 'T *'
+C:\Tareas\MotorDeJuegazo\GameEngine\vectorT.h(46,1): error C2440:         with
+C:\Tareas\MotorDeJuegazo\GameEngine\vectorT.h(46,1): error C2440:         [
+C:\Tareas\MotorDeJuegazo\GameEngine\vectorT.h(46,1): error C2440:             T=GameObject
+C:\Tareas\MotorDeJuegazo\GameEngine\vectorT.h(46,1): error C2440:         ]
+C:\Tareas\MotorDeJuegazo\GameEngine\vectorT.h(46,17): message : No hay disponible ningún operador de conversión definido por el usuario que pueda realizar esta conversión, o bien no se puede llamar al operador
+C:\Tareas\MotorDeJuegazo\GameEngine\vectorT.h(39): message : al compilar la función del miembro clase plantilla "void vectorT<T>::push(GameObject,int)"
+C:\Tareas\MotorDeJuegazo\GameEngine\vectorT.h(39): message :         with
+C:\Tareas\MotorDeJuegazo\GameEngine\vectorT.h(39): message :         [
+C:\Tareas\MotorDeJuegazo\GameEngine\vectorT.h(39): message :             T=GameObject
+C:\Tareas\MotorDeJuegazo\GameEngine\vectorT.h(39): message :         ]
+C:\Tareas\MotorDeJuegazo\GameEngine\TablaHash.h(34): message : vea la referencia a la creación de instancias de plantilla de función "void vectorT<T>::push(GameObject,int)" que se está compilando
+C:\Tareas\MotorDeJuegazo\GameEngine\TablaHash.h(34): message :         with
+C:\Tareas\MotorDeJuegazo\GameEngine\TablaHash.h(34): message :         [
+C:\Tareas\MotorDeJuegazo\GameEngine\TablaHash.h(34): message :             T=GameObject
+C:\Tareas\MotorDeJuegazo\GameEngine\TablaHash.h(34): message :         ]
+C:\Tareas\MotorDeJuegazo\GameEngine\TablaHash.h(34): message : vea la referencia a la creación de instancias de clase plantilla "vectorT<T>" que se está compilando
+C:\Tareas\MotorDeJuegazo\GameEngine\TablaHash.h(34): message :         with
+C:\Tareas\MotorDeJuegazo\GameEngine\TablaHash.h(34): message :         [
+C:\Tareas\MotorDeJuegazo\GameEngine\TablaHash.h(34): message :             T=GameObject
+C:\Tareas\MotorDeJuegazo\GameEngine\TablaHash.h(34): message :         ]
+C:\Tareas\MotorDeJuegazo\GameEngine\TablaHash.h(32): message : al compilar la función del miembro clase plantilla "void TablaHash<GameObject>::insertar(GameObject)"
+C:\Tareas\MotorDeJuegazo\GameEngine\GameEngine.cpp(194): message : vea la referencia a la creación de instancias de plantilla de función "void TablaHash<GameObject>::insertar(GameObject)" que se está compilando
+C:\Tareas\MotorDeJuegazo\GameEngine\GameEngine.cpp(193): message : vea la referencia a la creación de instancias de clase plantilla "TablaHash<GameObject>" que se está compilando

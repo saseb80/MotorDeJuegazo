@@ -185,22 +185,21 @@ int main() {
 	GameObject g2("saseb", 2134);
 	GameObject g3("alberto", 1234);
 	GameObject g4("oscar", 35467);
-	GameObject g5("irving", 13244);
+	GameObject g5("memo", 13244);
 	GameObject g6("ivan", 345345);
 	GameObject g7("juan", 123123);
 	GameObject g8("luciano", 435645);
 	GameObject g9("aaron", 23423472);
 	TablaHash<GameObject> teibol;
-	teibol.GenCodigoHash(g1);
-	teibol.GenCodigoHash(g2);
-	teibol.GenCodigoHash(g3);
-	teibol.GenCodigoHash(g4);
-	teibol.GenCodigoHash(g5);
-	teibol.GenCodigoHash(g6);
-	teibol.GenCodigoHash(g7);
-	teibol.GenCodigoHash(g8);
-	teibol.GenCodigoHash(g9);
-	//std::cout<<teibol.GenCodigoHash(g1);
+	teibol.insertar(g1);
+	teibol.insertar(g2);
+	teibol.insertar(g3);
+	teibol.insertar(g4);
+	teibol.insertar(g5);
+	teibol.insertar(g6);
+	teibol.insertar(g7);
+	teibol.insertar(g8);
+	teibol.insertar(g9);
 	
 }
 

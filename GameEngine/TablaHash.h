@@ -14,11 +14,8 @@ public:
 	TablaHash() {
 		GameObject* teibol = new GameObject();
 	}
-	TablaHash(int size) {
-		GameObject* teibol = new GameObject(size);
-	}
 	int GenCodigoHash(GameObject g);
-	void insertar(GameObject g, int index);
+	void insertar(GameObject g);
 	~TablaHash() {}
 };
 
@@ -32,6 +29,7 @@ int TablaHash<T>::GenCodigoHash(GameObject g) {
 }
 
 template <class T>
-void TablaHash<T>::insertar(GameObject g, int index) {
-	teibol.push(g, index);
+void TablaHash<T>::insertar(GameObject g) {
+	int index = GenCodigoHash(g);
+	teibol->push(g, index);
 }
