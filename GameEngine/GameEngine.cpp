@@ -28,7 +28,7 @@ GameObject arr2[] = {g2,g8,g5,g3,g6,g4,g1,g7};
 GameObject arr3[] = {g2,g8,g5,g3,g6,g4,g1,g7};
 GameObject arr4[] = {g2,g8,g5,g3,g6,g4,g1,g7};
  
-//pa swapear elementos
+//pa swapear 2 elementos
 void Cambiar(GameObject &a, GameObject &b) {
 	GameObject temp;
 	temp = a;
@@ -61,6 +61,7 @@ void SelectionSort(GameObject arr[],int t) {
 	}
 }
 
+//agarra 2 pivotes y los separa 2 arrays
 int Partition(GameObject arr[], int low, int high) {
 	GameObject pivote;
 	pivote = arr[high];
@@ -83,6 +84,7 @@ void QuickSort(GameObject arr[], int low, int high) {
 	}
 }
 
+//escoge el nuevo pivote
 void Heapify(GameObject arr[], int size, int i) {
 	int largest = i;
 	int izq = 2 * i + 1;
@@ -99,6 +101,7 @@ void Heapify(GameObject arr[], int size, int i) {
 	}
 }
 
+//se forma un arbol y se toma la root para comparar
 void HeapSort(GameObject arr[], short size) {
 	for (int i = size / 2 - 1; i >= 0; i--) {
 		Heapify(arr, size, i);
@@ -139,13 +142,24 @@ void RellenarMapa(int arr[10][10],int nBombas) {
 	}
 }
 
-void cm(int arr[10][10], int f, int c) {
-
-	if (arr[f][c] == 0 && f < 10){
-		cm(arr,f+1,c);
+//busca las bombas 
+void cm(int arr[10][10], int x, int y) {
+	int contador = 0;
+	if (arr[x][y] == 0){
+		cm(arr,x,y);
 	}
-	if (arr[f][c] == 1){
-		cm(arr, f+1,c);
+	if (arr[x + 1][y] == 0){
+		contador = arr[x-1][y] + arr[x][y];
+		cm(arr, x + 1,y);
+	}
+	if (arr[x-1][y] == 0) {
+		cm(arr,x-1,y);
+	}
+	if (arr[x][y+1] == 0) {
+		cm(arr, x, y+1);
+	}
+	if (arr[x][y - 1] == 0) {
+		cm(arr, x, y-1);
 	}
 }
 
@@ -178,7 +192,7 @@ int main() {
 	srand(time(NULL));
 	RellenarMapa(arr,23);
 	std::cout << std::endl;
-	cm(arr,0,0);
+	//cm(arr,0,0);
 	print(arr1,7);
 	HeapSort(arr1,7);
 	print(arr1,7);
